@@ -154,7 +154,9 @@ class StarRatingField extends acf_field
     {
         $dir = plugin_dir_url(__FILE__);
         
-        wp_enqueue_script('acf-input-star_rating', "{$dir}js/input.js");
+        if(get_post_type() !== 'acf-field-group'){
+            wp_enqueue_script('acf-input-star_rating', "{$dir}js/input.js");
+        }
         wp_enqueue_style(
             'font-awesome',
             "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
